@@ -1,0 +1,26 @@
+<config>
+    
+    <sceneDuration>10000</sceneDuration>
+    
+    <mainWindowSettings>
+        <windowSize_x>1280</windowSize_x>
+        <windowSize_y>720</windowSize_y>
+        <position_x>500</position_x>
+        <position_y>0</position_y>
+    </mainWindowSettings>
+    
+    <subWindowSettings>
+        <windowSize_x>400</windowSize_x>
+        <windowSize_y>400</windowSize_y>
+        <position_x>100</position_x>
+        <position_y>100</position_y>
+    </subWindowSettings>
+    
+    
+    <photoTotalAmount>3</photoTotalAmount>
+    <photoDuration>5000</photoDuration>
+    
+    
+    
+    
+</config>
