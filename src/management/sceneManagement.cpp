@@ -19,6 +19,10 @@ void SceneManagement::update() {
     } else if (mode == WEBCAM) {
         webCam.update();
     }
+    
+    if(animationIndex > 0){
+        anime.update(animationIndex);
+    }
 }
 
 void SceneManagement::draw() {
@@ -31,6 +35,10 @@ void SceneManagement::draw() {
     if (drawCaption) {
         caption();
     }
+    
+    if(animationIndex > 0){
+        anime.draw(animationIndex);
+    }
 }
 
 void SceneManagement::setMode(int index) {
@@ -41,6 +49,11 @@ void SceneManagement::setMode(int index) {
         mode = WEBCAM;
         webCam.setup();
     }
+}
+
+void SceneManagement::setAnimationIndex(int index){
+    anime.setup(index);
+    animationIndex = index;
 }
 
 int SceneManagement::getMode() {
@@ -58,12 +71,14 @@ void SceneManagement::caption() {
     ofPushMatrix();
     ofTranslate(50, 50);
     ofSetColor(0, 0, 0);
-    ofDrawRectangle(0, 0, 220, 120);
+    ofDrawRectangle(0, 0, 220, 140);
     ofSetColor(255, 255, 255);
     ofDrawBitmapString("mode : " + ofToString(mode), 10, 20);
-    ofDrawBitmapString("fps : " + ofToString(ofGetFrameRate()), 10, 100);
     ofDrawBitmapString("scenetime : " + ofToString(currentSceneTime) + " / " + ofToString(sceneDuration), 10, 40);
     ofDrawBitmapString("photoTime : " + ofToString(photo.sceneTime) + " / " + ofToString(photo.photoDuration), 10, 60);
     ofDrawBitmapString("photo : " + photo.photoPath, 10, 80);
+    ofDrawBitmapString("animation index : " + ofToString(animationIndex) , 10 , 100);
+    ofDrawBitmapString("fps : " + ofToString(ofGetFrameRate()), 10, 120);
     ofPopMatrix();
 }
+

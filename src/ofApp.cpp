@@ -10,9 +10,9 @@ void ofApp::setup() {
     int photoDuration = config->photoDuration;
     delete config;
     
-    int bufferSize = 512;
-    ofSoundStreamSetup(0, 1, this, 44100, bufferSize, 4);
-    audio.setup();
+//    int bufferSize = 512;
+//    ofSoundStreamSetup(0, 1, this, 44100, bufferSize, 4);
+//    audio.setup();
 
     ofBackground(50);
     fbo.allocate(1280, 720);
@@ -20,6 +20,8 @@ void ofApp::setup() {
 
 //    photoScene.setup();
     displayCaption = false;
+    
+
 }
 
 
@@ -34,7 +36,7 @@ void ofApp::update() {
     ofSetColor(255);
     scenes.draw();
     fbo.end();
-
+    
 }
 
 //--------------------------------------------------------------
@@ -49,14 +51,13 @@ void ofApp::draw() {
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
-    if (key == '1') {
+    if (key == 'z') {
         scenes.setMode(1);
         startTime = nowTime;
-    } else if (key == '2') {
+    } else if (key == 'x') {
         startTime = nowTime;
         scenes.setMode(2);
-    } else if (key == '3') {
-        startTime = nowTime;
+    } else if (key == 'c') {
         audio.setup();
     }else if(key == 'd'){
         if(scenes.drawCaption){
@@ -64,6 +65,8 @@ void ofApp::keyPressed(int key) {
         }else {
             scenes.drawCaption = true;
         }
+    }else if(key == '1'){
+        scenes.setAnimationIndex(1);
     }
     
     if (key == 'q') myGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE, true);

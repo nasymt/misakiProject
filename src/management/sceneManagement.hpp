@@ -9,9 +9,10 @@
 #ifndef sceneManagement_hpp
 #define sceneManagement_hpp
 
-#include "sceneManagement.hpp"
+#include "ofMain.h"
 #include "scene_PhotoSlideShow.hpp"
 #include "scene_webCam.hpp"
+#include "animationManagement.hpp"
 
 enum E_MODE {PHOTO, WEBCAM};
 
@@ -23,10 +24,11 @@ class SceneManagement {
     void caption();
     
     void setMode(int index);
+    void setAnimationIndex(int index);
     void sceneChange();
     void keyEvent(int key);
     int getMode();
-
+ 
     int sceneDuration;
     int currentSceneTime,nowTime,startTime;
     bool drawCaption;
@@ -34,6 +36,8 @@ class SceneManagement {
 
     
    private:
+    int animationIndex;
+    AnimationManagement anime;
     Scene_PhotoSlideShow photo;
     Scene_webCam webCam;
     E_MODE mode;

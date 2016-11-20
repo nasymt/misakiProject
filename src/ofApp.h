@@ -40,6 +40,5 @@ class ofApp : public ofBaseApp {
     ofFbo fbo;
     ofxPostGlitch myGlitch;
     ofTexture texture;
-    
 
 };
