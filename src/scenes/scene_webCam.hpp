@@ -7,18 +7,42 @@
 //
 
 #ifndef scene_webCam_hpp
-#define scene_webCam_hpp
 
+//#ifndef INCLUDE_GUARD_HOGE_HPP
+//#define INCLUDE_GUARD_HOGE_HPP
+#include "ofxOpenCv.h"
 #include "ofMain.h"
+#include "ofxPostGlitch.h"
+
+
+#define _USE_LIVE_VIDEO
 
 class scene_webCam {
    public:
     void setup();
+    void update();
     void draw();
+    void keyEvent(int key,bool keyPressed);
     
 
-   private:
     
+//    #ifdef _USE_LIVE_VIDEO
+    
+    ofVideoGrabber vidGrabber;
+//    #else
+//    #elseif
+    
+    ofPixels videoInverted;
+    ofTexture videoTexture;
+    
+    int camWidth;
+    int camHeight;
+    bool show;
+    
+    ofFbo fbo;
+    ofxPostGlitch myGlitch;
+    ofTexture texture;
+ 
 };
 
 #endif /* scene_webCam_hpp */

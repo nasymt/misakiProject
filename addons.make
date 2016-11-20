@@ -1,6 +1,6 @@
-ofxEasing
 ofxFft
 ofxGui
+ofxOpenCv
 ofxOsc
 ofxPostGlitch
 ofxXmlSettings
