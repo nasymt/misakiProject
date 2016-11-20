@@ -13,6 +13,8 @@ void Scene_PhotoSlideShow::setup() {
     config->loadXml("xml/config.xml");
     photoDuration = config->photoDuration;
     photoTotalAmount = config->photoTotalAmount;
+    photoWidth = config->photoWidth;
+    photoHeight = config->photoHeight;
     delete config;
 
     photoIndex = 1;
@@ -51,12 +53,11 @@ void Scene_PhotoSlideShow::update() {
 
 //--------------------------------------------------------------
 void Scene_PhotoSlideShow::draw() {
-    img.draw(0, 0, 1280, 720);
+    img.draw(ofGetWidth() / 2 - photoWidth / 2, ofGetHeight() / 2 - photoHeight / 2, photoWidth, photoHeight);
     //    myGlitch.generateFx();
     //    ofSetColor(255);
     //    fbo.draw(0, 0);
 }
 
 //--------------------------------------------------------------
-void Scene_PhotoSlideShow::keyEvent(int key, bool keyPressed) {
-}
+void Scene_PhotoSlideShow::keyEvent(int key, bool keyPressed) {}

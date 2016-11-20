@@ -32,6 +32,8 @@ class DataReaderConfig {
 
         photoTotalAmount = xml->getValue("photoTotalAmount", 0);
         photoDuration = xml->getValue("photoDuration",0);
+        photoWidth = xml->getValue("photoWidth",0);
+        photoHeight = xml->getValue("photoHeight", 0);
 
         xml->popTag();
 
@@ -43,6 +45,7 @@ class DataReaderConfig {
     int subWindowSize_x, subWindowSize_y, subWindowPos_x, subWindowPos_y;
     int photoTotalAmount;
     int photoDuration;
+    int photoWidth,photoHeight;
 
    private:
     ofxXmlSettings *xml;

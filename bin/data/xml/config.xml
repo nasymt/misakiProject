@@ -20,7 +20,9 @@
     <photoTotalAmount>125</photoTotalAmount>
     <photoDuration>5000</photoDuration>
     
-    
-    
-    
+    <photoWidth>480</photoWidth>
+    <photoHeight>720</photoHeight>
+<!--    <photoPos_x></photoPos_x>-->
+<!--    <photoPos_y></photoPos_y>-->
+
 </config>

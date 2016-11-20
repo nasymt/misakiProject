@@ -23,8 +23,6 @@ class Scene_webCam {
     void draw();
     void keyEvent(int key,bool keyPressed);
     
-
-    
 //    #ifdef _USE_LIVE_VIDEO
     
     ofVideoGrabber vidGrabber;

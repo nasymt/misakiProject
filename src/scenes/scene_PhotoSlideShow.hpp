@@ -29,6 +29,7 @@ class Scene_PhotoSlideShow {
     int nextTime;
     int initTime;
     int sceneTime;
+    int photoWidth,photoHeight;
 
     
    private:

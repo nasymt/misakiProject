@@ -23,7 +23,7 @@ void Scene_webCam::setup() {
         }
     }
 
-    vidGrabber.setDeviceID(1);
+    vidGrabber.setDeviceID(0);
     vidGrabber.setDesiredFrameRate(60);
     vidGrabber.setup(camWidth, camHeight);
 
