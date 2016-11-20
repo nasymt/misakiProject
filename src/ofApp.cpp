@@ -9,96 +9,107 @@ void ofApp::setup() {
     sceneDuration = config->sceneDuration;
     int photoDuration = config->photoDuration;
     delete config;
-    mode = WEBCAM;
     
     int bufferSize = 512;
     ofSoundStreamSetup(0, 1, this, 44100, bufferSize, 4);
     audio.setup();
 
     ofBackground(50);
+    fbo.allocate(1280, 720);
+    myGlitch.setup(&fbo);
 
-    photoScene.setup();
+//    photoScene.setup();
     displayCaption = false;
 }
 
-//--------------------------------------------------------------
-void ofApp::setupMonitor() { ofBackground(50); }
 
 //--------------------------------------------------------------
 void ofApp::update() {
     nowTime = ofGetElapsedTimeMillis();
     currentSceneTime = nowTime - startTime;
+    scenes.update();
     
-    
-    if (mode == PHOTO) {
-        currentSceneTime = nowTime - startTime;
-        photoScene.update();
-    }else if(mode == WEBCAM){
-    }else if(mode == ANIMATION){
-//        audio.update();
-    }
+    fbo.begin();
+    ofClear(0, 0, 0, 255);
+    ofSetColor(255);
+    scenes.draw();
+    fbo.end();
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-    if (mode == PHOTO) {
-        ofDrawBitmapString("1", 50, 50);
-        photoScene.draw();
-    } else if (mode == WEBCAM) {
-        ofDrawBitmapString("2", 50, 50);
-    } else if (mode == ANIMATION) {
-        ofDrawBitmapString("3", 50, 50);
-        audio.draw();
-    }
-    if(displayCaption){
-        caption();
-    }
+    
+    myGlitch.generateFx();
+    ofSetColor(255);
+    fbo.draw(0, 0);
+
+
 }
-
-
-void ofApp::caption(){
-    ofPushMatrix();
-    ofTranslate(50,50);
-    ofSetColor(0,0,0);
-    ofDrawRectangle(0,0,220,120);
-    ofSetColor(255,255,255);
-    ofDrawBitmapString("mode : " + ofToString(mode),10,20);
-    ofDrawBitmapString("fps : "+ofToString(ofGetFrameRate()),10,100);
-    ofDrawBitmapString("scenetime : " + ofToString(currentSceneTime) + " / " + ofToString(sceneDuration), 10, 40);
-    int tmp =ofGetElapsedTimeMillis()-photoScene.nextTime - photoScene.photoDuration;
-    ofDrawBitmapString("photoTime : " + ofToString(photoScene.sceneTime)+" / " + ofToString(photoScene.photoDuration),10,60);
-    ofDrawBitmapString("photo : " + photoScene.photoPath,10,80);
-    ofPopMatrix();
-}
-
-//--------------------------------------------------------------
-void ofApp::drawMonitor(ofEventArgs &args) {}
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
     if (key == '1') {
-        mode = PHOTO;
+        scenes.setMode(1);
         startTime = nowTime;
     } else if (key == '2') {
         startTime = nowTime;
-        mode = WEBCAM;
+        scenes.setMode(2);
     } else if (key == '3') {
-        mode = ANIMATION;
         startTime = nowTime;
         audio.setup();
     }else if(key == 'd'){
-        if(displayCaption){
-            displayCaption = false;
+        if(scenes.drawCaption){
+            scenes.drawCaption = false;
         }else {
-            displayCaption = true;
+            scenes.drawCaption = true;
         }
     }
+    
+    if (key == 'q') myGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE, true);
+    if (key == 'w') myGlitch.setFx(OFXPOSTGLITCH_GLOW, true);
+    if (key == 'e') myGlitch.setFx(OFXPOSTGLITCH_SHAKER, true);
+    if (key == 'r') myGlitch.setFx(OFXPOSTGLITCH_CUTSLIDER, true);
+    if (key == 't') myGlitch.setFx(OFXPOSTGLITCH_TWIST, true);
+    if (key == 'y') myGlitch.setFx(OFXPOSTGLITCH_OUTLINE, true);
+    if (key == 'u') myGlitch.setFx(OFXPOSTGLITCH_NOISE, true);
+    if (key == 'i') myGlitch.setFx(OFXPOSTGLITCH_SLITSCAN, true);
+    if (key == 'o') myGlitch.setFx(OFXPOSTGLITCH_SWELL, true);
+    if (key == 'p') myGlitch.setFx(OFXPOSTGLITCH_INVERT, true);
+    
+    if (key == 'a') myGlitch.setFx(OFXPOSTGLITCH_CR_HIGHCONTRAST, true);
+    if (key == 's') myGlitch.setFx(OFXPOSTGLITCH_CR_BLUERAISE, true);
+    //if (key == 'd') myGlitch.setFx(OFXPOSTGLITCH_CR_REDRAISE, true);
+    if (key == 'f') myGlitch.setFx(OFXPOSTGLITCH_CR_GREENRAISE, true);
+    if (key == 'g') myGlitch.setFx(OFXPOSTGLITCH_CR_BLUEINVERT, true);
+    if (key == 'h') myGlitch.setFx(OFXPOSTGLITCH_CR_REDINVERT, true);
+    if (key == 'j') myGlitch.setFx(OFXPOSTGLITCH_CR_GREENINVERT, true);
+    
     photoScene.keyEvent(key,true);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key) {
     photoScene.keyEvent(key,false);
+    
+    if (key == 'q') myGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE, false);
+    if (key == 'w') myGlitch.setFx(OFXPOSTGLITCH_GLOW, false);
+    if (key == 'e') myGlitch.setFx(OFXPOSTGLITCH_SHAKER, false);
+    if (key == 'r') myGlitch.setFx(OFXPOSTGLITCH_CUTSLIDER, false);
+    if (key == 't') myGlitch.setFx(OFXPOSTGLITCH_TWIST, false);
+    if (key == 'y') myGlitch.setFx(OFXPOSTGLITCH_OUTLINE, false);
+    if (key == 'u') myGlitch.setFx(OFXPOSTGLITCH_NOISE, false);
+    if (key == 'i') myGlitch.setFx(OFXPOSTGLITCH_SLITSCAN, false);
+    if (key == 'o') myGlitch.setFx(OFXPOSTGLITCH_SWELL, false);
+    if (key == 'p') myGlitch.setFx(OFXPOSTGLITCH_INVERT, false);
+    
+    if (key == 'a') myGlitch.setFx(OFXPOSTGLITCH_CR_HIGHCONTRAST, false);
+    if (key == 's') myGlitch.setFx(OFXPOSTGLITCH_CR_BLUERAISE, false);
+    //if (key == 'd') myGlitch.setFx(OFXPOSTGLITCH_CR_REDRAISE, false);
+    if (key == 'f') myGlitch.setFx(OFXPOSTGLITCH_CR_GREENRAISE, false);
+    if (key == 'g') myGlitch.setFx(OFXPOSTGLITCH_CR_BLUEINVERT, false);
+    if (key == 'h') myGlitch.setFx(OFXPOSTGLITCH_CR_REDINVERT, false);
+    if (key == 'j') myGlitch.setFx(OFXPOSTGLITCH_CR_GREENINVERT, false);
 
 }
 

@@ -4,17 +4,17 @@
 #include "audioAnalyze.hpp"
 #include "scene_PhotoSlideShow.hpp"
 #include "dataReaderConfig.hpp"
+#include "sceneManagement.hpp"
+#include "ofxPostGlitch.h"
 
 
-enum E_MODE { PHOTO, WEBCAM, ANIMATION };
+//enum E_MODE { PHOTO, WEBCAM, ANIMATION };
 
 class ofApp : public ofBaseApp {
    public:
     void setup();
-    void setupMonitor();
     void update();
     void draw();
-    void drawMonitor(ofEventArgs& args);
     void caption();
 
     //    void plot(vector<float>& buffer, float scale, float offset);
@@ -29,14 +29,17 @@ class ofApp : public ofBaseApp {
     int currentSceneTime,nowTime,startTime;
 
     AudioAnalyze audio;
-    E_MODE mode;
+    //E_MODE mode;
     DataReaderConfig *config;
     
     Scene_PhotoSlideShow photoScene;
+    SceneManagement scenes;
     
     bool displayCaption;
     
-
+    ofFbo fbo;
+    ofxPostGlitch myGlitch;
+    ofTexture texture;
     
 
 };

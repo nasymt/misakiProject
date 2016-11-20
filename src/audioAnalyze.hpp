@@ -30,12 +30,12 @@ class AudioAnalyze {
     ofImage spectrogram;
     int mode;
     int plotHeight,bufferSize;
-    
     int appWidth, appHeight;
     
     ofMutex soundMutex;
     vector<float> drawBins, middleBins, audioBins;
     vector<float> drawBuffer, middleBuffer, audioBuffer;
+    
     
 };
 

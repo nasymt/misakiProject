@@ -11,20 +11,33 @@
 
 #include "sceneManagement.hpp"
 #include "scene_PhotoSlideShow.hpp"
+#include "scene_webCam.hpp"
+
+enum E_MODE {PHOTO, WEBCAM};
 
 class SceneManagement {
-public:
+   public:
     void setup();
     void update();
     void draw();
+    void caption();
     
+    void setMode(int index);
     void sceneChange();
-    
+    void keyEvent(int key);
+    int getMode();
+
+    int sceneDuration;
+    int currentSceneTime,nowTime,startTime;
+    bool drawCaption;
+
+
     
    private:
     Scene_PhotoSlideShow photo;
-    
-    
+    Scene_webCam webCam;
+    E_MODE mode;
+
 };
 
 #endif /* sceneManagement_hpp */

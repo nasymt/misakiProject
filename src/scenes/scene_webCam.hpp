@@ -14,10 +14,9 @@
 #include "ofMain.h"
 #include "ofxPostGlitch.h"
 
-
 #define _USE_LIVE_VIDEO
 
-class scene_webCam {
+class Scene_webCam {
    public:
     void setup();
     void update();
@@ -39,10 +38,7 @@ class scene_webCam {
     int camHeight;
     bool show;
     
-    ofFbo fbo;
-    ofxPostGlitch myGlitch;
-    ofTexture texture;
- 
+    
 };
 
 #endif /* scene_webCam_hpp */
