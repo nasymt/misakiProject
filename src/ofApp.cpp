@@ -74,6 +74,8 @@ void ofApp::keyPressed(int key) {
         scenes.setAnimationIndex(3);
     }else if(key == '4'){
         scenes.setAnimationIndex(4);
+    }else if(key == '0'){
+        scenes.setAnimationIndex(0);
     }
     
     if (key == 'q') myGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE, true);

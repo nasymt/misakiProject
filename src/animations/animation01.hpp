@@ -52,8 +52,6 @@ class Animation01 {
                 ofDrawCircle(rx, z*200, radius);
                 ofDrawCircle(lx, z*200, radius);
             }
-            
-            
         }
         ofPopMatrix();
         gui.draw();

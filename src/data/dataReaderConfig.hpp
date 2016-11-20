@@ -34,7 +34,6 @@ class DataReaderConfig {
         photoDuration = xml->getValue("photoDuration",0);
         photoWidth = xml->getValue("photoWidth",0);
         photoHeight = xml->getValue("photoHeight", 0);
-        cout << "sceneDuration : " << sceneDuration << endl;
 
         xml->popTag();
 

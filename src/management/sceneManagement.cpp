@@ -13,6 +13,7 @@ void SceneManagement::setup() {
     config->loadXml("xml/config.xml");
     sceneDuration = config->sceneDuration;
     delete config;
+    animationIndex = -1;
 }
 
 void SceneManagement::update() {
@@ -34,7 +35,7 @@ void SceneManagement::update() {
         webCam.update();
     }
     
-    if(animationIndex > 0){
+    if(animationIndex >= 0){
         anime.update(animationIndex);
     }
 }
@@ -50,7 +51,7 @@ void SceneManagement::draw() {
         caption();
     }
     
-    if(animationIndex > 0){
+    if(animationIndex >= 0){
         anime.draw(animationIndex);
     }
 }

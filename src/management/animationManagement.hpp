@@ -11,6 +11,7 @@
 
 #include "animationManagement.hpp"
 #include "animation01.hpp"
+#include "animation00_example.hpp"
 
 class AnimationManagement {
    public:
@@ -21,6 +22,9 @@ class AnimationManagement {
                 break;
             case 2:
                 break;
+            case 0:
+                anime00.setup();
+                
         }
     };
     
@@ -29,6 +33,8 @@ class AnimationManagement {
             case 1:
                 anime01.update();
                 break;
+            case 0:
+                anime00.update();
         }
     }
     
@@ -37,11 +43,14 @@ class AnimationManagement {
             case 1:
                 anime01.draw();
                 break;
+            case 0:
+                anime00.draw();
         }
     }
 
    private:
     Animation01 anime01;
+    Animation00_example anime00;
 };
 
 #endif /* animationManagement_hpp */
