@@ -10,6 +10,7 @@
 #define sceneManagement_hpp
 
 #include "ofMain.h"
+#include "dataReaderConfig.hpp"
 #include "scene_PhotoSlideShow.hpp"
 #include "scene_webCam.hpp"
 #include "animationManagement.hpp"
@@ -37,6 +38,7 @@ class SceneManagement {
     
    private:
     int animationIndex;
+    DataReaderConfig *config;
     AnimationManagement anime;
     Scene_PhotoSlideShow photo;
     Scene_webCam webCam;

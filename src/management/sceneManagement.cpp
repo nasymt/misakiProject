@@ -8,12 +8,26 @@
 
 #include "sceneManagement.hpp"
 
-void SceneManagement::setup() {}
+void SceneManagement::setup() {
+    config = new DataReaderConfig();
+    config->loadXml("xml/config.xml");
+    sceneDuration = config->sceneDuration;
+    delete config;
+}
 
 void SceneManagement::update() {
     nowTime = ofGetElapsedTimeMillis();
     currentSceneTime = nowTime - startTime;
-
+    
+    if(currentSceneTime > sceneDuration){
+        startTime = nowTime;
+        if(mode == PHOTO){
+            mode = WEBCAM;
+        }else if(mode == WEBCAM){
+            mode = PHOTO;
+        }
+    }
+    
     if (mode == PHOTO) {
         photo.update();
     } else if (mode == WEBCAM) {

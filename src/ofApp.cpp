@@ -18,9 +18,8 @@ void ofApp::setup() {
     fbo.allocate(1280, 720);
     myGlitch.setup(&fbo);
 
-//    photoScene.setup();
     displayCaption = false;
-    
+    scenes.setup();
 
 }
 
@@ -65,8 +64,16 @@ void ofApp::keyPressed(int key) {
         }else {
             scenes.drawCaption = true;
         }
-    }else if(key == '1'){
+    }
+    
+    if(key == '1'){
         scenes.setAnimationIndex(1);
+    }else if(key == '2'){
+        scenes.setAnimationIndex(2);
+    }else if(key == '3'){
+        scenes.setAnimationIndex(3);
+    }else if(key == '4'){
+        scenes.setAnimationIndex(4);
     }
     
     if (key == 'q') myGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE, true);
