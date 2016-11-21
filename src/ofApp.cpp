@@ -8,6 +8,7 @@ void ofApp::setup() {
     config->loadXml("xml/config.xml");
     sceneDuration = config->sceneDuration;
     int photoDuration = config->photoDuration;
+    osc_send_enabled = config->osc_send_enabled;
     delete config;
     
 //    int bufferSize = 512;
@@ -20,6 +21,7 @@ void ofApp::setup() {
 
     displayCaption = false;
     scenes.setup();
+    osc.setup();
 
 }
 
@@ -35,6 +37,10 @@ void ofApp::update() {
     ofSetColor(255);
     scenes.draw();
     fbo.end();
+    
+    if(osc_send_enabled){
+        osc.sendOscMessage("fps",0,ofGetFrameRate());
+    }
     
 }
 

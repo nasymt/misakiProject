@@ -1,5 +1,13 @@
 <config>
     
+    <osc_receive_enabled>0</osc_receive_enabled>
+    <osc_send_enabled>1</osc_send_enabled>
+    
+    <osc_receiver_port>9000</osc_receiver_port>
+    <osc_sender_port>9001</osc_sender_port>
+    <osc_send_address>127.0.0.1</osc_send_address>
+    
+    
     <sceneDuration>10000</sceneDuration>
     
     <mainWindowSettings>

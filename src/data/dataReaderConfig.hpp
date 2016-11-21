@@ -19,6 +19,12 @@ class DataReaderConfig {
         xml->load(path);
 
         xml->pushTag("config");
+        osc_receive_enabled = xml->getValue("osc_receive_enabled",0);
+        osc_send_enabled = xml->getValue("osc_send_enabled",0);
+        osc_receiver_port = xml->getValue("osc_receiver_port",0);
+        osc_sender_port = xml->getValue("osc_sender_port",0);
+        osc_send_address = xml->getValue("osc_send_address","");
+        
         sceneDuration = xml->getValue("sceneDuration", 0);
         windowSize_x = xml->getValue("mainWindowSettings:windowSize_x", 0);
         windowSize_y = xml->getValue("mainWindowSettings:windowSize_y", 0);
@@ -40,6 +46,12 @@ class DataReaderConfig {
         delete xml;
     };
 
+    int osc_receiver_port,osc_sender_port;
+    string osc_send_address;
+    
+    
+    bool osc_receive_enabled,osc_send_enabled;
+    
     int sceneDuration;
     int windowSize_x, windowSize_y, windowPos_x, windowPos_y;
     int subWindowSize_x, subWindowSize_y, subWindowPos_x, subWindowPos_y;

@@ -6,6 +6,7 @@
 #include "dataReaderConfig.hpp"
 #include "sceneManagement.hpp"
 #include "ofxPostGlitch.h"
+#include "oscSenderReceiver.hpp"
 
 
 //enum E_MODE { PHOTO, WEBCAM, ANIMATION };
@@ -24,6 +25,9 @@ class ofApp : public ofBaseApp {
     void keyReleased(int key);
     void mousePressed(int x, int y, int button);
     void mouseReleased(int x, int y, int button);
+    
+    void setGlitch();
+    void removeGlitch();
 
     int sceneDuration;
     int currentSceneTime,nowTime,startTime;
@@ -31,14 +35,17 @@ class ofApp : public ofBaseApp {
     AudioAnalyze audio;
     //E_MODE mode;
     DataReaderConfig *config;
+    OscSenderReceiver osc;
     
     Scene_PhotoSlideShow photoScene;
     SceneManagement scenes;
     
     bool displayCaption;
+    bool osc_send_enabled;
     
     ofFbo fbo;
     ofxPostGlitch myGlitch;
     ofTexture texture;
 
+    
 };

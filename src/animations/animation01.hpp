@@ -16,7 +16,8 @@
 class Animation01 {
    public:
     void setup(){
-        fft.setup(pow(2.0, 10.0));
+        fft = new ofxEasyFft();
+        fft->setup(pow(2.0, 10.0));
         gui.setup();
         gui.add(saturation.setup("Saturation", 127, 0, 255));
         gui.add(alpha.setup("Alpha", 127, 0, 255));
@@ -24,12 +25,12 @@ class Animation01 {
     };
     
     void update(){
-        fft.update();
+        fft->update();
     };
     
     void draw(){
         vector<float> buffer;
-        buffer = fft.getBins();
+        buffer = fft->getBins();
         
         ofPushMatrix();
         ofTranslate(ofGetWidth()/2, 0);
@@ -58,7 +59,7 @@ class Animation01 {
     };
 
 private:
-    ofxEasyFft fft;
+    ofxEasyFft *fft;
     ofxPanel gui;
     ofxFloatSlider alpha;
     ofxFloatSlider saturation;
