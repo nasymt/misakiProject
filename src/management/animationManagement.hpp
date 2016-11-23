@@ -28,6 +28,11 @@ class AnimationManagement {
         }
     };
     
+    void begin(int index){
+        
+    }
+    
+    
     void update(int index){
         switch(index){
             case 1:

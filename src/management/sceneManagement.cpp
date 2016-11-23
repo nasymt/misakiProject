@@ -14,6 +14,8 @@ void SceneManagement::setup() {
     sceneDuration = config->sceneDuration;
     delete config;
     animationIndex = -1;
+    anime.setup(0);
+    anime.setup(1);
 }
 
 void SceneManagement::update() {
@@ -67,7 +69,7 @@ void SceneManagement::setMode(int index) {
 }
 
 void SceneManagement::setAnimationIndex(int index){
-    anime.setup(index);
+    anime.begin(index);
     animationIndex = index;
 }
 

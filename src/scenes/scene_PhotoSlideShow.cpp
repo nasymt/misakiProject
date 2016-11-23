@@ -21,9 +21,6 @@ void Scene_PhotoSlideShow::setup() {
     photoPath = ofToString(photoIndex) + ".jpg";
     img.load("photo/" + photoPath);
 
-    //    fbo.allocate(1280, 720);
-    //    myGlitch.setup(&fbo);
-
     nextTime = photoDuration + ofGetElapsedTimeMillis();
     initTime = ofGetElapsedTimeMillis();
 }
@@ -32,12 +29,6 @@ void Scene_PhotoSlideShow::setup() {
 void Scene_PhotoSlideShow::update() {
     int now = ofGetElapsedTimeMillis();
     sceneTime = now - initTime;
-
-    //    fbo.begin();
-    //    ofClear(0, 0, 0, 255);
-    //    ofSetColor(255);
-    //    img.draw(0, 0,1280,720);
-    //    fbo.end();
 
     if (sceneTime > photoDuration) {
         if (photoIndex < photoTotalAmount) {
@@ -54,9 +45,6 @@ void Scene_PhotoSlideShow::update() {
 //--------------------------------------------------------------
 void Scene_PhotoSlideShow::draw() {
     img.draw(ofGetWidth() / 2 - photoWidth / 2, ofGetHeight() / 2 - photoHeight / 2, photoWidth, photoHeight);
-    //    myGlitch.generateFx();
-    //    ofSetColor(255);
-    //    fbo.draw(0, 0);
 }
 
 //--------------------------------------------------------------

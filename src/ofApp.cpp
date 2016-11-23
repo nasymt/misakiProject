@@ -21,8 +21,12 @@ void ofApp::setup() {
 
     displayCaption = false;
     scenes.setup();
+    audio.setup();
     osc.setup();
-
+    
+    
+    mainOutputSyphonServer.setName("Screen Output");
+    
 }
 
 
@@ -38,20 +42,38 @@ void ofApp::update() {
     scenes.draw();
     fbo.end();
     
+    vector<float> tmp_drawBuffer = audio.getDrawBuffer();
+    vector<float> tmp_middle = audio.getMiddleBuffer();
+    //cout << tmp_drawBuffer[0] << " : " << tmp_middle[0] << " : " << tmp_drawBuffer.size()<< endl;
+    
+    for(int i=0;i<tmp_drawBuffer.size();i++){
+        ofSetColor(255);
+//        ofDrawBitmapString(ofToString(tmp_drawBuffer[i]) + " : " + ofToString(tmp_middle[i]), 10, i * 10);
+    }
+    
     if(osc_send_enabled){
         osc.sendOscMessage("fps",0,ofGetFrameRate());
     }
+    
+    
     
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
     
+    glClearColor(0.0, 0.0, 0.0, 0.0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    
+    
     myGlitch.generateFx();
     ofSetColor(255);
     fbo.draw(0, 0);
+    
+    mainOutputSyphonServer.publishScreen();
 
-
+    
 }
 
 //--------------------------------------------------------------

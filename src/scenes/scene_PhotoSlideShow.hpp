@@ -34,14 +34,8 @@ class Scene_PhotoSlideShow {
     
    private:
     DataReaderConfig *config;
-    
 
     ofImage img;
-    ofFbo fbo;
-    ofxPostGlitch myGlitch;
-    ofTexture texture;
-    
-    
 };
 
 #endif /* scene_PhotoSlideShow_hpp */

@@ -7,6 +7,7 @@
 #include "sceneManagement.hpp"
 #include "ofxPostGlitch.h"
 #include "oscSenderReceiver.hpp"
+#include "ofxSyphon.h"
 
 
 //enum E_MODE { PHOTO, WEBCAM, ANIMATION };
@@ -45,7 +46,9 @@ class ofApp : public ofBaseApp {
     
     ofFbo fbo;
     ofxPostGlitch myGlitch;
+    
     ofTexture texture;
+    ofxSyphonServer mainOutputSyphonServer;
 
     
 };

@@ -10,19 +10,23 @@
 #define animation01_hpp
 
 #include "ofMain.h"
-#include "ofxEasyFft.h"
+#include "fft.hpp"
 #include "ofxGui.h"
 
 class Animation01 {
    public:
     void setup(){
-        fft = new ofxEasyFft();
-        fft->setup(pow(2.0, 10.0));
+        fft = new Fft();
+        fft->setup();
         gui.setup();
         gui.add(saturation.setup("Saturation", 127, 0, 255));
         gui.add(alpha.setup("Alpha", 127, 0, 255));
         gui.add(radiusMax.setup("Radius Max", 50, 0, 500));
     };
+    
+    void begin(){
+        
+    }
     
     void update(){
         fft->update();
@@ -30,7 +34,7 @@ class Animation01 {
     
     void draw(){
         vector<float> buffer;
-        buffer = fft->getBins();
+        buffer = fft->getBuffer();
         
         ofPushMatrix();
         ofTranslate(ofGetWidth()/2, 0);
@@ -59,7 +63,7 @@ class Animation01 {
     };
 
 private:
-    ofxEasyFft *fft;
+    Fft *fft;
     ofxPanel gui;
     ofxFloatSlider alpha;
     ofxFloatSlider saturation;

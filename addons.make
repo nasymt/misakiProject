@@ -3,4 +3,5 @@ ofxGui
 ofxOpenCv
 ofxOsc
 ofxPostGlitch
+ofxSyphon
 ofxXmlSettings

@@ -29,7 +29,18 @@ class OscSenderReceiver {
 
     void update() {}
 
-    void receiveOscMessage() {}
+    void receiveOscMessage() {
+        while (receiver.hasWaitingMessages()){
+            ofxOscMessage m ;
+            if(m.getAddress() == "/misaki/mode"){
+                receive_mode = m.getArgAsInt(0);
+            }else if(m.getAddress() == "/misaki/animation"){
+                receive_animationNum = m.getArgAsInt(0);
+            }else if(m.getAddress() == "/misaki/glitch"){
+                receive_glitchNum = m.getArgAsInt(0);
+            }
+        }
+    }
 
     void sendOscMessage(string setAddress , int iArg, float fArg) {
         if(setAddress == "fps"){
@@ -47,6 +58,10 @@ class OscSenderReceiver {
     ofxOscReceiver receiver;
     ofxOscSender sender;
     DataReaderConfig *config;
+    
+    int receive_mode;
+    int receive_animationNum;
+    int receive_glitchNum;
 };
 
 #endif /* oscSenderReceiver_hpp */

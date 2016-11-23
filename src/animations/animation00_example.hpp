@@ -15,7 +15,7 @@ class Animation00_example {
    public:
     void setup() { circleSize = 0; };
 
-    void update() { circleSize = abs(sin(ofGetElapsedTimef()*2) * 100); };
+    void update() { circleSize = abs(sin(ofGetElapsedTimef() * 2) * 100); };
 
     void draw() {
         ofSetColor(255);
