@@ -24,14 +24,14 @@ void SceneManagement::update() {
     nowTime = ofGetElapsedTimeMillis();
     currentSceneTime = nowTime - startTime;
     
-    if(currentSceneTime > sceneDuration){
-        startTime = nowTime;
-        if(mode == PHOTO){
-            mode = WEBCAM;
-        }else if(mode == WEBCAM){
-            mode = PHOTO;
-        }
-    }
+//    if(currentSceneTime > sceneDuration){
+//        startTime = nowTime;
+//        if(mode == PHOTO){
+//            mode = WEBCAM;
+//        }else if(mode == WEBCAM){
+//            mode = PHOTO;
+//        }
+//    }
     
     if (mode == PHOTO) {
         photo.update();
@@ -93,7 +93,7 @@ void SceneManagement::caption() {
     ofDrawRectangle(0, 0, 220, 140);
     ofSetColor(255, 255, 255);
     ofDrawBitmapString("mode : " + ofToString(mode), 10, 20);
-    ofDrawBitmapString("scenetime : " + ofToString(currentSceneTime) + " / " + ofToString(sceneDuration), 10, 40);
+    //ofDrawBitmapString("scenetime : " + ofToString(currentSceneTime) + " / " + ofToString(sceneDuration), 10, 40);
     ofDrawBitmapString("photoTime : " + ofToString(photo.sceneTime) + " / " + ofToString(photo.photoDuration), 10, 60);
     ofDrawBitmapString("photo : " + photo.photoPath, 10, 80);
     ofDrawBitmapString("animation index : " + ofToString(animationIndex) , 10 , 100);

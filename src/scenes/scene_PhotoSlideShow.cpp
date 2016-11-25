@@ -31,12 +31,16 @@ void Scene_PhotoSlideShow::update() {
     sceneTime = now - initTime;
 
     if (sceneTime > photoDuration) {
-        if (photoIndex < photoTotalAmount) {
-            photoIndex++;
-        } else {
-            photoIndex = 1;
+        int lastIndex = photoIndex;
+        while(lastIndex == photoIndex){
+            photoIndex = (int)ofRandom(photoTotalAmount);
         }
-        photoPath = ofToString(photoIndex) + ".jpg";
+//        if (photoIndex < photoTotalAmount) {
+//            photoIndex++;
+//        } else {
+//            photoIndex = 1;
+//        }
+        photoPath = ofToString(photoIndex+1) + ".jpg";
         img.load("photo/" + photoPath);
         initTime = now;
     }
