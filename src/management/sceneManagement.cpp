@@ -16,6 +16,8 @@ void SceneManagement::setup() {
     animationIndex = -1;
     anime.setup(0);
     anime.setup(1);
+    anime.setup(2);
+    anime.setup(3);
 }
 
 void SceneManagement::update() {

@@ -8,7 +8,7 @@
 #include "ofxPostGlitch.h"
 #include "oscSenderReceiver.hpp"
 #include "ofxSyphon.h"
-
+#include "ofxPDF.h"
 
 //enum E_MODE { PHOTO, WEBCAM, ANIMATION };
 
@@ -49,6 +49,10 @@ class ofApp : public ofBaseApp {
     
     ofTexture texture;
     ofxSyphonServer mainOutputSyphonServer;
-
+    void drawAnimation();
+    
+    ofxPDF mPDF;
+    vector<ofPolyline> polys;
+    ofPath mPath;
     
 };

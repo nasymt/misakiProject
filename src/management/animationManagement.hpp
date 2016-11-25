@@ -10,6 +10,8 @@
 #define animationManagement_hpp
 
 #include "animationManagement.hpp"
+#include "animation03.hpp"
+#include "animation02.hpp"
 #include "animation01.hpp"
 #include "animation00_example.hpp"
 
@@ -21,9 +23,14 @@ class AnimationManagement {
                 anime01.setup();
                 break;
             case 2:
+                 anime02.setup();
+                break;
+            case 3:
+                anime03.setup();
                 break;
             case 0:
                 anime00.setup();
+                
                 
         }
     };
@@ -38,6 +45,12 @@ class AnimationManagement {
             case 1:
                 anime01.update();
                 break;
+            case 2:
+                anime02.update();
+                break;
+            case 3:
+                anime03.update();
+                break;
             case 0:
                 anime00.update();
         }
@@ -48,14 +61,23 @@ class AnimationManagement {
             case 1:
                 anime01.draw();
                 break;
+             case 2:
+                anime02.draw();
+                break;
+            case 3:
+                anime03.draw();
+                break;
             case 0:
                 anime00.draw();
         }
     }
 
    private:
+    Animation03 anime03;
+    Animation02 anime02;
     Animation01 anime01;
     Animation00_example anime00;
 };
+
 
 #endif /* animationManagement_hpp */
