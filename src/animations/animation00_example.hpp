@@ -29,14 +29,8 @@ public:
         gui.setup();
         gui.add(radius.setup("radius", 0, 10, 300));
         gui.add(color.setup("color", initColor, minColor, maxColor));
-        
 
-        for (int i = 0; i <NUM; i++) {
-            loc_x[i] = ofRandom(0, ofGetWidth());
-            loc_y[i] = ofRandom(0, ofGetHeight());
-            speed_x[i] = ofRandom(-10, 10);
-            speed_y[i] = ofRandom(-10, 10);
-          }
+        
         
     };
     
@@ -44,33 +38,13 @@ public:
         circleSize = abs(sin(ofGetElapsedTimef()*2) * 100);
     
         
-        for(int i = 0; i < NUM; i++){
-            loc_x[i] = loc_x[i] + speed_x[i];
-            loc_y[i] = loc_y[i] + speed_y[i];
-            
-           if(loc_x[i] < 0 ){
-               speed_x[i] = speed_x[i] * -1;
-            }
-              if(loc_x[i] > ofGetWidth()) {
-                  speed_x[i] = speed_x[i] * -1;
-              }
-              
-              if(loc_y[i] < 0) {
-                  speed_y[i] = speed_y[i] * -1;
-              }
-              if(loc_y[i] > ofGetHeight()) {
-                  speed_y[i] = speed_y[i] * -1;
-              }
-                  
-              }
+       
               };
         
     
     
     void draw() {
-        for(int i = 0; i < NUM; i++) {
-        ofCircle(loc_x[i], loc_y[i], radius[i]);
-        }
+
         ofSetColor(color);
         ofSetLineWidth(2);
         ofSetCircleResolution(64);
@@ -94,7 +68,7 @@ public:
         }
         
         
-        ofRotateZ(angle);
+      //  ofRotateZ(angle);
         ofDrawCircle(ofGetWidth()/2 , ofGetHeight()/2, 20);
         
         
@@ -107,19 +81,7 @@ private:
     int circleSize;
     ofxColorSlider color;
     float angle;
-    float loc_x;
-    float loc_y;
-    float speed_x;
-    float speed_y;
-    
-    static const int NUM = 20;
-    
-    float loc_x1[NUM];
-    float loc_y1[NUM];
-    float speed_x1[NUM];
-    float speed_y1[NUM];
-    float radius[NUM];
-    
+
 
     
     

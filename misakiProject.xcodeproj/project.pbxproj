@@ -289,6 +289,9 @@
 		4CD2228F2C8116D51179E3A3 /* devmem2d.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = devmem2d.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/devmem2d.hpp; sourceTree = SOURCE_ROOT; };
 		4CEE4D70AF7EA77C81201C52 /* image_tiff.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = image_tiff.c; path = ../../../addons/ofxPDF/libs/mupdf/lib/fitz/image_tiff.c; sourceTree = SOURCE_ROOT; };
 		4CFA8A81B93736DE82F0090A /* gpumat.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = gpumat.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/gpumat.hpp; sourceTree = SOURCE_ROOT; };
+		4E449F8A1DE823C8001179D9 /* animation05.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = animation05.hpp; path = "../../misakiProject 2/src/animations/animation05.hpp"; sourceTree = "<group>"; };
+		4E44A07A1DE8242F001179D9 /* animation04.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = animation04.hpp; path = "../../misakiProject 2/src/animations/animation04.hpp"; sourceTree = "<group>"; };
+		4E44A07B1DE8244A001179D9 /* animation07.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = animation07.hpp; path = "../../misakiProject 2/src/animations/animation07.hpp"; sourceTree = "<group>"; };
 		4E85951B81D29D2538E78E70 /* pdf_image.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = pdf_image.c; path = ../../../addons/ofxPDF/libs/mupdf/lib/pdf/pdf_image.c; sourceTree = SOURCE_ROOT; };
 		4E95FB446A9C9C6F0DE12D75 /* OscPrintReceivedElements.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscPrintReceivedElements.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.h; sourceTree = SOURCE_ROOT; };
 		4EF4F3881DE75B4100A68CA7 /* animation02.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = animation02.hpp; sourceTree = "<group>"; };
@@ -812,6 +815,9 @@
 				6DF53A7FD20D6B8172EEF835 /* animation01.hpp */,
 				4EF4F3881DE75B4100A68CA7 /* animation02.hpp */,
 				5A8E7665F0CA8458EDFD93FB /* animation03.hpp */,
+				4E44A07A1DE8242F001179D9 /* animation04.hpp */,
+				4E449F8A1DE823C8001179D9 /* animation05.hpp */,
+				4E44A07B1DE8244A001179D9 /* animation07.hpp */,
 			);
 			name = animations;
 			sourceTree = "<group>";
